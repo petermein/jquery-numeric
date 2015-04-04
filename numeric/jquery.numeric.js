@@ -253,7 +253,7 @@ $.fn.numeric.keyup = function(e)
         }
 		// set the value and prevent the cursor moving to the end
 		this.value = val;
-		$.fn.setSelection(this, [carat, selectionEnd]);
+		$.fn.setNumericSelection(this, [carat, selectionEnd]);
 	}
 };
 
@@ -311,7 +311,8 @@ $.fn.getSelectionEnd = function(o)
 }
 
 // set the selection, o is the object (input), p is the position ([start, end] or just start)
-$.fn.setSelection = function(o, p)
+// renamed function to prevent collision with https://github.com/timdown/rangyinputs
+$.fn.setNumericSelection = function(o, p)
 {
 	// if p is number, start and end are the same
 	if(typeof p == "number") { p = [p, p]; }
